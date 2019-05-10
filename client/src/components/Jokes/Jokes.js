@@ -19,6 +19,7 @@ const Jokes = () => {
 
     return (
         <div className='Jokes'>
+            <h2>The Jokes:</h2>
             <ul>
                 {
                     jokes !== [] &&

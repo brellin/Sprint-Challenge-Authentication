@@ -19,6 +19,7 @@ axios.interceptors.request.use(
 )
 
 function App() {
+  const [registered, setRegistered] = useState(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : false)
   const [loggedIn, setLoggedIn] = useState(false)
 
   return (
@@ -32,7 +33,7 @@ function App() {
           loggedIn ?
             <Jokes />
             :
-            <Login login={login} />
+            <Login registered={registered} login={registered ? login : register} />
         }
       </section>
     </div>
@@ -46,6 +47,20 @@ function App() {
           localStorage.setItem('token', res.data.token)
           setLoggedIn(true)
           alert(res.data.message)
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  function register(user) {
+    axios
+      .post('/register', user)
+      .then(res => {
+        if (res.status === 200) {
+          localStorage.setItem('user', true)
+          setRegistered(true)
         }
       })
       .catch(err => {
