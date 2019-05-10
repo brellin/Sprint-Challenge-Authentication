@@ -12,6 +12,7 @@ const Login = props => {
 
                 <p>Password:</p>
                 <input onChange={handleChanges} name='password' value={fields.password} type="password" />
+
                 <button onClick={(e) => {
                     e.preventDefault()
                     props.login(fields)

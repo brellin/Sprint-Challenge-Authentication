@@ -32,6 +32,36 @@
     }
   }
 
+  nav{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    margin-top: 25px;
+
+    span{
+      color: orange;
+      font-size: 2rem;
+      border-left: red 2px ridge;
+      border-right: red 2px ridge;
+      border-top: none;
+      border-bottom: none;
+      border-radius: 10%;
+      transition: .5s ease-out;
+      padding: 0 15px;
+
+      &:hover{
+        background: maroon;
+        border-top: red 2px ridge;
+        border-bottom: red 2px ridge;
+        transform: scale(1.1);
+      }
+    }
+  }
+
   section{
     width: 75%;
     display: flex;
